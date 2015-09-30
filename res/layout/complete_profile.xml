@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/bg_color">
+
+    <include layout="@layout/header"/>
+
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/btnView1"
+            android:src="@drawable/btn_view"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:layout_alignParentBottom="true"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/btnPhoto1"
+            android:layout_toLeftOf="@id/btnView1"
+            android:layout_alignTop="@id/btnView1"
+            android:paddingTop="10dp"
+            android:src="@drawable/btn_photo"
+            android:paddingLeft="5dp"/>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="102dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:id="@id/imageView1"
+            android:layout_toLeftOf="@id/btnPhoto1"
+            android:src="@drawable/default_image"
+            android:layout_marginRight="5dp"/>
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="身份证照"
+            android:textSize="16sp"
+            android:padding="10dp"
+            android:layout_toLeftOf="@id/imageView1"
+            android:textColor="@color/text_normal"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/line_nearby_horizontal"/>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/btnView2"
+            android:src="@drawable/btn_view"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:layout_alignParentBottom="true"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/btnPhoto2"
+            android:layout_toLeftOf="@id/btnView2"
+            android:layout_alignTop="@id/btnView2"
+            android:paddingTop="10dp"
+            android:src="@drawable/btn_photo"
+            android:paddingLeft="5dp"/>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="102dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:id="@id/imageView2"
+            android:layout_toLeftOf="@id/btnPhoto2"
+            android:src="@drawable/default_image"
+            android:layout_marginRight="5dp"/>
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="本人头像"
+            android:textSize="16sp"
+            android:padding="10dp"
+            android:layout_toLeftOf="@id/imageView2"
+            android:textColor="@color/text_normal"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/line_nearby_horizontal"/>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/btnView3"
+            android:src="@drawable/btn_view"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:layout_alignParentBottom="true"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/btnPhoto3"
+            android:layout_toLeftOf="@id/btnView3"
+            android:layout_alignTop="@id/btnView3"
+            android:paddingTop="10dp"
+            android:src="@drawable/btn_photo"
+            android:paddingLeft="5dp"/>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="102dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:id="@id/imageView3"
+            android:layout_toLeftOf="@id/btnPhoto3"
+            android:src="@drawable/default_image"
+            android:layout_marginRight="5dp"/>
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="车辆侧面"
+            android:textSize="16sp"
+            android:padding="10dp"
+            android:layout_toLeftOf="@id/imageView3"
+            android:textColor="@color/text_normal"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/line_nearby_horizontal"/>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/btnView4"
+            android:src="@drawable/btn_view"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:layout_alignParentBottom="true"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/btnPhoto4"
+            android:layout_toLeftOf="@id/btnView4"
+            android:layout_alignTop="@id/btnView4"
+            android:paddingTop="10dp"
+            android:src="@drawable/btn_photo"
+            android:paddingLeft="5dp"/>
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="102dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop"
+            android:id="@id/imageView4"
+            android:layout_toLeftOf="@id/btnPhoto4"
+            android:src="@drawable/default_image"
+            android:layout_marginRight="5dp"/>
+
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="车辆后面"
+            android:textSize="16sp"
+            android:padding="10dp"
+            android:layout_toLeftOf="@id/imageView4"
+            android:textColor="@color/text_normal"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/line_nearby_horizontal"/>
+
+    <Button
+        android:id="@id/btnSubmit"
+        android:layout_marginLeft="30dip"
+        android:layout_marginRight="30dip"
+        android:layout_marginTop="15dp"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_btn_orange"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:text="提      交"/>
+
+</LinearLayout>

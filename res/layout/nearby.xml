@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/bg_color"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <include
+        layout="@layout/header"
+        android:layout_width="match_parent"
+        android:id="@id/header"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_color"
+        android:orientation="horizontal">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_oil"
+                    android:id="@id/btnOil"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/button_text_size"
+                    android:textColor="@color/text"
+                    android:text="加油站"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="100dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/line_half"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:id="@id/btnBank"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_bank"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/button_text_size"
+                    android:textColor="@color/text"
+                    android:text="银行"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_alignParentRight="true"
+                android:layout_height="100dp"
+                android:visibility="invisible"
+                android:background="@drawable/line_half"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_parking"
+                    android:id="@id/btnParking"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/button_text_size"
+                    android:textColor="@color/text"
+                    android:text="停车场"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/line_login"/>
+</LinearLayout>

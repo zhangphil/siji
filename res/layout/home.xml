@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="@color/bg_color">
+
+    <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:background="@drawable/title_bg">
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/logo_small_left"/>
+
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/logo_small_right"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:visibility="gone"
+                android:id="@id/layout_published_vehicle"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/bg_published_vehicle"
+                android:padding="10dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@id/icon"
+                    android:text="马上就要发财啦！"
+                    android:textSize="21sp"
+                    android:textColor="@color/white"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="您现在是配货状态"
+                    android:id="@id/name"
+                    android:textSize="26sp"
+                    android:textColor="@color/white"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="请注意查收货主给您发的货源短信"
+                    android:textSize="18sp"
+                    android:id="@id/desc"
+                    android:layout_alignLeft="@id/name"
+                    android:layout_below="@id/name"
+                    android:textColor="@color/white"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="再点击一次可取消配货状态"
+                    android:textSize="15sp"
+                    android:layout_alignLeft="@id/name"
+                    android:layout_below="@id/desc"
+                    android:textColor="#6e0b0b"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:id="@id/layout_publish_vehicle"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/bg_publish_vehicle"
+                android:padding="10dp">
+
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@id/icon"
+                    android:src="@drawable/icon_car"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="就地配货"
+                    android:id="@id/name"
+                    android:textSize="30sp"
+                    android:textColor="@color/white"/>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="点一下，您就等着发财吧！"
+                    android:textSize="20sp"
+                    android:layout_alignLeft="@id/name"
+                    android:layout_below="@id/name"
+                    android:layout_toLeftOf="@id/icon"
+                    android:textColor="@color/white"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3">
+
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/bg_order_vehicle"
+                    android:id="@id/rlBooking"
+                    android:layout_weight="1"
+                    android:padding="10dp">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="预约配货"
+                        android:layout_centerHorizontal="true"
+                        android:id="@id/name"
+                        android:textSize="30sp"
+                        android:textColor="@color/white"/>
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@id/icon"
+                        android:src="@drawable/icon_order"
+                        android:layout_centerInParent="true"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="找个回程货就赚大了！"
+                        android:id="@id/desc"
+                        android:layout_alignParentBottom="true"
+                        android:textSize="15sp"
+                        android:textColor="@color/white"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="回程有点远"
+                        android:layout_above="@id/desc"
+                        android:textSize="15sp"
+                        android:textColor="@color/white"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:id="@id/rlCalculate"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/bg_insurance"
+                        android:padding="10dp">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@id/icon"
+                            android:src="@drawable/icon_calculation"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="车险计算"
+                            android:id="@id/name"
+                            android:textSize="23sp"
+                            android:textColor="@color/white"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:id="@id/rlMileage"
+                        android:background="@drawable/bg_mileage"
+                        android:padding="10dp">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@id/icon"
+                            android:src="@drawable/icon_journey"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"/>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="里程计算"
+                            android:id="@id/name"
+                            android:textSize="23sp"
+                            android:textColor="@color/white"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_weight="5">
+
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:id="@id/rlNearby"
+                    android:background="@drawable/bg_nearby"
+                    android:padding="10dp">
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@id/icon"
+                        android:src="@drawable/icon_nearby"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="附近"
+                        android:id="@id/name"
+                        android:textSize="23sp"
+                        android:textColor="@color/white"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
+                    android:id="@id/rlAbout"
+                    android:background="@drawable/bg_more"
+                    android:padding="10dp">
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@id/icon"
+                        android:src="@drawable/icon_about"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"/>
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="关于我们"
+                        android:id="@id/name"
+                        android:textSize="23sp"
+                        android:textColor="@color/white"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
+

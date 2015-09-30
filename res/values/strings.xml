@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="host_file_url">http://wlqq-host.b0.upaiyun.com/driver.host</string>
+    <string name="host_file_name">host.txt</string>
+
+    <string name="app_name">货车帮</string>
+    <string name="err_address_not_found">抱歉，未搜索到该地址所在位置(搜索结果来自百度)</string>
+    <string name="err_cannot_connect_server_dns_error">DNS解析错误，请重新登录！</string>
+    <string name="err_cannot_connect_server">网络异常，请稍后在试！</string>
+    <string name="err_server_internal_error">服务器繁忙，请稍后再试</string>
+    <string name="err_internal_error">出现内部错误，请拨打我们的客服热线0851-8666156或稍后再试</string>
+    <string name="err_unknown_error" formatted="false">出现未知错误，请拨打我们的客服热线0851-8666156或稍后再试</string>
+    <string name="setting_button">网络设置</string>
+    <string name="no_network_tip">网络连接不可用</string>
+    <string name="chinamobile_network_tip">您当前使用的是中国移动的GPRS上网时，首先提示使用本软件可能会比较慢，建议使用无线WIFI网络或3G网络.</string>
+    <string name="gas_station">加油站</string>
+    <string name="allPictureUploadSuccess">所有照片上传成功！</string>
+    <string name="uploadSuccess">上传成功！</string>
+    <string name="please_wait">请稍后...</string>
+    <string name="msg_loading">请求中,请稍等...</string>
+    <string name="cancel">取消</string>
+    <string name="select_picture_failed">您选择的图片失败,请确认该图片是否存在</string>
+    <string name="err_no_available_networks">当前没有可用网络连接，请稍后再试</string>
+    <string name="searching_map">正在搜索您需要的信息，请稍后...</string>
+    <string name="poi_address">地址:</string>
+    <string name="lbl_tel">联系电话:</string>
+    <string name="options_menu_feedback">反馈</string>
+    <string name="options_menu_settings">设置</string>
+    <string name="options_menu_logout">注销</string>
+    <string name="options_menu_login">登录</string>
+    <string name="options_menu_exit">退出</string>
+    <string name="options_menu_about">关于</string>
+    <string name="err_username_required">请输入您的用户名</string>
+    <string name="err_password_required">请输入您的登录密码</string>
+    <string name="err_invalid_username">您输入的用户名格式不正确</string>
+    <string name="err_invalid_password">您输入的密码格式不正确</string>
+    <string name="err_session_expired">服务器繁忙，请稍后再试</string>
+    <string name="search_result">搜索结果</string>
+    <string name="modifyPassword">修改密码</string>
+    <string name="options_menu_checkupdate">检查更新</string>
+    <string name="msg_logining">正在登录,请稍等...</string>
+    <string name="ok">确定</string>
+    <string name="saved">保存成功</string>
+    <string name="msg_exit_confirmation">您确定要退出物流QQ吗？</string>
+    <string name="err_service_expired">您还未购买会员服务或已经到期，请到就近的服务网点充值续费，或拨打我们的客服热线%s充值、开通。</string>
+    <string name="tips">系统提示</string>
+    <string name="customer_service_tel">0851-8666156</string>
+    <string name="phone_list">电话列表</string>
+    <string name="please_choice">请选择</string>
+    <string name="gps_located">GPS定位成功！您位置是:%s</string>
+    <string name="gps_get_address_failed">定位成功，解析地址失败。</string>
+    <string name="location_failed">定位失败，请查看网络连接。</string>
+    <string name="msg_located" formatted="false">定位成功！您当前的位置是%s</string>
+    <string name="mustFill">必填</string>
+    <string name="please_choice_city">请选择出发城市和到达城市</string>
+    <string name="choice_city_repeat">出发和到达城市重复，请重新选择</string>
+    <string name="choice_city_all">请选择完整</string>
+    <string name="searching">正在为您查询中,请稍后...</string>
+    <string name="please_choice_des">请选择到达城市</string>
+    <string name="title_province_selector">选择省</string>
+    <string name="title_city_selector">选择市</string>
+    <string name="nearby">附近</string>
+    <string name="title_district_selector">选择区县</string>
+    <string name="freight_note">联系我时，请说是在56QQ上看到的，谢谢！</string>
+
+    <string name="road_mileage_remind">此路线的里程大约为：%d公里</string>
+    <string name="register">注册</string>
+    <string name="IDerror">您输入的身份证号码与该用户的身份证号码不匹配,请重新输入！</string>
+    <string name="IDNull">身份证号码不能为空！</string>
+    <string name="IDNumError">您输入的身份证号码不正确</string>
+    <string name="truckNUmNull">车牌号不能为空</string>
+    <string name="truckNUmError">车牌号不正确</string>
+    <string name="driverNameNull">司机姓名不能为空！</string>
+    <string name="truckType">车辆类型</string>
+    <string name="truckLength">车辆长度</string>
+    <string name="mobileNumError">手机号码不正确</string>
+    <string name="mobileNumNull">手机号码不能为空</string>
+    <string name="addressNull">请选择所在地</string>
+    <string name="cpic_cx_title">车险计算器</string>
+    <string name="booking">预约配货</string>
+
+    <string name="err_dep_required">请选择出发地</string>
+    <string name="err_dest_required">请选择到达地</string>
+    <string name="about_us">关于我们</string>
+    <string name="upgrade"><u>检查升级</u></string>
+    <string name="completeProfile">完善资料</string>
+
+    <string name="waiting">请稍后</string>
+    <string name="uploadingPictureTip">正在上传图片...</string>
+
+
+
+    <string name="umeng_fb_back">返回</string>
+    <string name="umeng_fb_contact_info">联系方式</string>
+    <string name="umeng_fb_contact_info_hint">QQ, 电话等我们能联系您的联系方式</string>
+    <string name="umeng_fb_contact_title">填写联系信息</string>
+    <string name="umeng_fb_contact_update_at">更新于 </string>
+    <string name="umeng_fb_notification_content_formatter_multiple_msg">收到来自开发者的 %d 条回复。</string>
+    <string name="umeng_fb_notification_content_formatter_single_msg">新回复: %s</string>
+    <string name="umeng_fb_notification_ticker_text">有新的回复</string>
+    <string name="umeng_fb_reply_content_default">你好， 我是产品经理，欢迎您反馈使用产品的感受和建议</string>
+    <string name="umeng_fb_reply_content_hint">我想说</string>
+    <string name="umeng_fb_reply_date_default">2013年3月12日 13:24:00</string>
+    <string name="umeng_fb_send">发送</string>
+    <string name="umeng_fb_title">用户反馈</string>
+
+</resources>

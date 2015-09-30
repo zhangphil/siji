@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="text_left">#787878</color>
+    <color name="text_selected">#3f3f3f</color>
+    <color name="text_hint">#9a9a9a</color>
+    <color name="text_highlight">#ff6600</color>
+
+    <color name="listdef">#ffeeeeee</color>
+    <color name="listex">#ffced3db</color>
+    <color name="listpress">#ffd8dce2</color>
+    <color name="buffer">#606060</color>
+    <color name="broker_intro">#EEAA00</color>
+    <color name="red">#FF0000</color>
+    <color name="phone">#606060</color>
+
+    <color name="poilistdef">#fff1f1f1</color>
+    <color name="poilistpress">#ffffffff</color>
+    <color name="blue">#0000FF</color>
+    <color name="text">#0C0C0C</color>
+    <color name="green">#009966</color>
+    <color name="edittext_hint">#606060</color>
+    <color name="orange">#f05e08</color>
+    <color name="black1">#585858</color>
+    <color name="pale_yellow">#ECF7FF</color>
+    <color name="today_color">#68C2FF</color>
+    <color name="text_color">#336699</color>
+    <color name="title_color">#FF9933</color>
+    <color name="layout_color">#F5F5F5</color>
+    <color name="text_color1">#666666</color>
+    <color name="text_color2">#333333</color>
+    <color name="text_color3">#787878</color>
+    <color name="gridview">#EFEFEF</color>
+    <color name="have_waybill">#FF6F3F</color>
+    <color name="gridview_item_pressed">#CCCCCC</color>
+    <color name="gray">#EAEAEA</color>
+    <color name="bg_color">#f7f0e6</color>
+    <color name="list_select">#E1E1E1</color>
+    <color name="list_divider">#E3E3E3</color>
+    <drawable name="gray">#EAEAEA </drawable>
+    <drawable name="gray1">#F9F9F9</drawable>
+    <drawable name="gridview_item_pressed">#CCCCCC</drawable>
+    <drawable name="gridview_item_normal">#EFEFEF</drawable>
+    <drawable name="list_item1">#f3f3f3</drawable>
+    <drawable name="list_item2">#f6f6f6</drawable>
+
+    <color name="white">#FFFFFF</color>
+    <color name="push_bg">#EDEDED</color>
+    <color name="push_normal_text_color">#585858</color>
+    <color name="push_pressed_text_color">#ff6600</color>
+    <color name="text_normal">#555555</color >
+    <color name="note">#b8b8b8</color >
+
+    <color name="umeng_fb_color_btn_normal">#333333</color>
+    <color name="umeng_fb_color_btn_pressed">#1495F7</color>
+</resources>

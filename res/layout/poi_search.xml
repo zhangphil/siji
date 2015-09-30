@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:background="@drawable/info_bubble"
+              android:layout_width="wrap_content"
+              android:layout_height="fill_parent"
+              android:orientation="vertical"
+              android:padding="@dimen/list_item_margin_right"
+
+		>
+
+	<TextView android:id="@id/map_bubbleText"
+	          android:layout_width="wrap_content"
+	          android:singleLine="true"
+	          android:textColor="@color/text"
+	          android:layout_height="wrap_content"
+	          android:layout_marginRight="@dimen/list_item_margin_left"/>
+
+	<TextView
+			android:id="@id/addressTextView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:maxWidth="250dp"
+			android:textColor="@color/text"
+			/>
+	<TextView
+			android:id="@id/phoneTextView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textColor="@color/text"
+			android:layout_marginBottom="15dp"
+			/>
+</LinearLayout>
