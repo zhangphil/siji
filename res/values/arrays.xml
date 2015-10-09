@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tab_name">
+        <item>抢单</item>
+        <item>订单中心</item>
+        <item>工具</item>
+        <item>我</item>
+    </string-array> 
+</resources>   
