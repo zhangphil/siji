@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -15,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import hcb.tc.sj.fragments.DingDanZhongXin;
 import hcb.tc.sj.fragments.QiangDan;
+import hcb.tc.sj.view.SlidingTabLayout;
 
 public class HomeActivity extends FragmentActivity {
 
@@ -41,10 +41,12 @@ public class HomeActivity extends FragmentActivity {
 		ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
 		viewPager.setAdapter(adapter);
 
-		TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+		SlidingTabLayout mSlidingTabLayout=(SlidingTabLayout) findViewById(R.id.slidingTabLayout);
+		mSlidingTabLayout.setViewPager(viewPager);  
+		//TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
 		//tabLayout.setSmoothScrollingEnabled(true);
 
-		tabLayout.setupWithViewPager(viewPager);
+		//tabLayout.setupWithViewPager(viewPager);
 		
 //		OnTabSelectedListener onTabSelectedListener=new OnTabSelectedListener(){
 //
@@ -102,7 +104,6 @@ public class HomeActivity extends FragmentActivity {
 		@Override
 		public	void	setPrimaryItem(ViewGroup container, int position, Object object) {
 			super.setPrimaryItem(container, position, object);
-			
 			myToolbarTitle.setText(tabName[position]);
 		}
 	}

@@ -29,18 +29,15 @@
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/tabLayout"
+        android:layout_above="@+id/slidingTabLayout"
         android:layout_below="@+id/toolbar"
         android:layout_centerInParent="true" />
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tabLayout"
+    <hcb.tc.sj.view.SlidingTabLayout
+        android:id="@+id/slidingTabLayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/tab_height"
-        android:layout_alignParentBottom="true"
-        app:tabGravity="fill"
-        app:tabIndicatorColor="@color/huochebang_light_orange"
-        app:tabMode="fixed" >
-    </android.support.design.widget.TabLayout>
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+    </hcb.tc.sj.view.SlidingTabLayout>
 
 </RelativeLayout>
