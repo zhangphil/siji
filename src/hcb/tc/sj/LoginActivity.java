@@ -29,6 +29,7 @@ public class LoginActivity extends Activity {
 			public void onClick(View v) {
 				Intent intent=new Intent(activity,HomeActivity.class);
 				activity.startActivity(intent);
+				activity.finish();
 			}
 		});
 	}

@@ -6,4 +6,11 @@
         <item>工具</item>
         <item>我</item>
     </string-array> 
+    
+     <string-array name="dingdanzhongxin_tab_name">
+        <item>全部</item>
+        <item>待接货</item>
+        <item>运送中</item>
+    </string-array> 
+    
 </resources>   

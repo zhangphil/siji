@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- 亮黄色 -->
+    <color name="huochebang_light_orange">#f57c00</color>
+
+    <!-- 淡灰色 -->
+    <color name="huochebang_light_gray">#bdbdbd</color>
+    
+</resources>
