@@ -23,5 +23,7 @@ public class XiangQing extends	Activity{
 				activity.finish();
 			}
 		});
+		
+		toolbar.setTitle("详情");
 	}
 }

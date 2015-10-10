@@ -15,11 +15,7 @@
     	app:navigationIcon="@drawable/fanhui"
     	app:navigationContentDescription="返回"  >
 
-        <include
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/toobar_height"
-            android:layout_gravity="center"
-            layout="@layout/toolbar_header" />
+       
         
     </android.support.v7.widget.Toolbar>
     

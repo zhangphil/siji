@@ -1,16 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string-array name="tab_name">
         <item>抢单</item>
         <item>订单中心</item>
         <item>工具</item>
         <item>我</item>
-    </string-array> 
+    </string-array>
     
-     <string-array name="dingdanzhongxin_tab_name">
+    <string-array name="dingdanzhongxin_tab_name">
         <item>全部</item>
         <item>待接货</item>
         <item>运送中</item>
-    </string-array> 
+    </string-array>
     
-</resources>   
+    <string-array name="city">
+        <item>广州</item>
+        <item>深圳</item>
+        <item>东莞</item>
+        <item>佛山</item>
+        <item>惠州</item>
+    </string-array>
+
+</resources>
