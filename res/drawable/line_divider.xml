@@ -5,7 +5,7 @@
         android:dashGap="3dip"
         android:dashWidth="6dip"
         android:width="1dip"
-        android:color="#bdbdbd" />
+        android:color="@color/huochebang_light_gray" />
     
 	<!-- 虚线高度 -->
     <size android:height="1dip" />

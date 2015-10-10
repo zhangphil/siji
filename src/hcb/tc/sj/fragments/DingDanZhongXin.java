@@ -21,15 +21,10 @@ public class DingDanZhongXin extends	Fragment{
 	private String[] tabName;
 	
 	@Override
-	public	void	onAttach(Context context){
-		super.onAttach(context);
-		Resources res = getResources();
-		tabName = res.getStringArray(R.array.dingdanzhongxin_tab_name);
-	}
-	
-	@Override
 	public	void	onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
+		Resources res = getResources();
+		tabName = res.getStringArray(R.array.dingdanzhongxin_tab_name);
 	}
 	
 	@Override
@@ -42,9 +37,10 @@ public class DingDanZhongXin extends	Fragment{
 		super.onViewCreated(view, savedInstanceState);
 		
 		TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
-	
+		tabLayout.setSmoothScrollingEnabled(true);
+		
 		MyViewPagerAdapter adapter = new MyViewPagerAdapter(this.getFragmentManager());
-		ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewPager);
+		ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewpager);
 		viewPager.setAdapter(adapter);
 		
 		tabLayout.setupWithViewPager(viewPager);
