@@ -1,6 +1,7 @@
 package hcb.tc.sj.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -9,9 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import hcb.tc.sj.R;
+import hcb.tc.sj.activitys.XiangQing;
 
 public class QiangDan extends Fragment {
 
@@ -57,11 +60,13 @@ public class QiangDan extends Fragment {
 
 	private class MyListViewAdapter extends ArrayAdapter {
 
+		private	Context context;
 		private LayoutInflater layoutInflater;
 
 		public MyListViewAdapter(Context context, int resource) {
 			super(context, resource);
 			layoutInflater = LayoutInflater.from(context);
+			this.context=context;
 		}
 
 		@Override
@@ -69,6 +74,16 @@ public class QiangDan extends Fragment {
 			if (convertView == null)
 				convertView = layoutInflater.inflate(R.layout.fragment_qiangdan_item, null);
 
+			ImageView xiangqingImageView=(ImageView) convertView.findViewById(R.id.xiangqingImageView);
+			xiangqingImageView.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					Intent intent=new Intent(context,XiangQing.class);
+					startActivity(intent);
+				}
+			});
+			
 			return convertView;
 		}
 

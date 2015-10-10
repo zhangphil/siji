@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:text="标题"
+        android:text="详情"
         android:textColor="@android:color/white" />
 
 </RelativeLayout>

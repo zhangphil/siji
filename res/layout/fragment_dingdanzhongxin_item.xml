@@ -18,7 +18,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/TextView2"
+            android:id="@+id/huowuyunsongzhuangtai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 			android:layout_alignParentRight="true"
@@ -74,6 +74,7 @@
 			     android:layout_height="wrap_content" >
 
 			     <Button
+			         android:id="@+id/xiangqingButton"
 			         android:layout_width="0dip"
 			         android:layout_weight="1"
 			         android:layout_height="wrap_content"

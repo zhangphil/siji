@@ -1,11 +1,11 @@
-package hcb.tc.sj;
+package hcb.tc.sj.activitys;
 
 import android.app.Activity;
 import android.os.Bundle;
-
+import hcb.tc.sj.R;
 import hcb.tc.sj.models.Account;
 
-public class MainActivity extends Activity {
+public class Main extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

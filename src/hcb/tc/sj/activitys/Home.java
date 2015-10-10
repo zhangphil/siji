@@ -1,4 +1,4 @@
-package hcb.tc.sj;
+package hcb.tc.sj.activitys;
 
 import java.util.ArrayList;
 
@@ -12,11 +12,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import hcb.tc.sj.R;
 import hcb.tc.sj.fragments.DingDanZhongXin;
 import hcb.tc.sj.fragments.QiangDan;
 import hcb.tc.sj.view.SlidingTabLayout;
 
-public class HomeActivity extends FragmentActivity {
+public class Home extends FragmentActivity {
 
 	private	TextView myToolbarTitle;
 	private String[] tabName;
