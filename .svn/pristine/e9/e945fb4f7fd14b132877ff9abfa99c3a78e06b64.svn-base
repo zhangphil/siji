@@ -1,0 +1,9 @@
+<resources>
+   <dimen name="toobar_height">60dip</dimen> 
+   <dimen name="tab_height">70dip</dimen>  
+   
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+</resources>
