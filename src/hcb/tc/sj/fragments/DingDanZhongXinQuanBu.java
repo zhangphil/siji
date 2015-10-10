@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,7 +37,7 @@ public class DingDanZhongXinQuanBu extends	Fragment{
 		super.onViewCreated(view, savedInstanceState);
 		
 		ListView listView = (ListView) view.findViewById(android.R.id.list);
-		MyListViewAdapter adapter = new MyListViewAdapter(this.getContext(), -1);
+		MyListViewAdapter adapter = new MyListViewAdapter(this.getContext(), R.layout.fragment_dingdanzhongxin_quanbu_item);
 		listView.setAdapter(adapter);
 
 		swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
@@ -67,17 +68,21 @@ public class DingDanZhongXinQuanBu extends	Fragment{
 	private class MyListViewAdapter extends ArrayAdapter {
 
 		private LayoutInflater layoutInflater;
+		private	int	resource;
 
 		public MyListViewAdapter(Context context, int resource) {
 			super(context, resource);
 			layoutInflater = LayoutInflater.from(context);
+			this.resource=resource;
 		}
 
 		@Override
 		public View getView(int pos, View convertView, ViewGroup parent) {
 			if (convertView == null)
-				convertView = layoutInflater.inflate(R.layout.fragment_dingdanzhongxin_quanbu_item, null);
+				convertView = layoutInflater.inflate(resource, null);
 
+			Log.d("张飞", pos+" view");
+			
 			return convertView;
 		}
 

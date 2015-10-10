@@ -17,12 +17,12 @@ import hcb.tc.sj.R;
 
 
 public class DingDanZhongXin extends	Fragment{
-
+	
 	private String[] tabName;
 	
 	@Override
-	public	void	onAttach(Context activity){
-		super.onAttach(activity);
+	public	void	onAttach(Context context){
+		super.onAttach(context);
 		Resources res = getResources();
 		tabName = res.getStringArray(R.array.dingdanzhongxin_tab_name);
 	}
@@ -50,6 +50,12 @@ public class DingDanZhongXin extends	Fragment{
 		tabLayout.setupWithViewPager(viewPager);
 	}
 	
+	private	void	addFragmentsForViewPager(ArrayList<Fragment> fragments){
+		fragments.add(new DingDanZhongXinQuanBu());
+		fragments.add(new DingDanZhongXinDaiJieHuo());
+		fragments.add(new DingDanZhongXingYunSongZhong());
+	}
+	
 	private class MyViewPagerAdapter extends FragmentPagerAdapter {
 
 		private	ArrayList<Fragment> fragments;
@@ -58,25 +64,8 @@ public class DingDanZhongXin extends	Fragment{
 			super(fm);
 			
 			fragments=new ArrayList<Fragment>();
-			fragments.add(new DingDanZhongXinQuanBu());
-			fragments.add(new DingDanZhongXinDaiJieHuo());
-			fragments.add(new DingDanZhongXingYunSongZhong());
+			addFragmentsForViewPager(fragments);
 		}
-
-		
-//		@Override
-//		public Object instantiateItem(ViewGroup container, int pos) {
-//			View view=mLayoutInflater.inflate(R.layout.listview, null);
-//			ListView listView=(ListView) view.findViewById(android.R.id.list);
-//			container.addView(view);
-//			
-//			return	view;
-//		}
-
-//		@Override
-//		public void destroyItem(ViewGroup container, int position, Object object) {
-//			container.removeView((View) object);
-//		}
 
 		@Override
 		public	String	getPageTitle(int pos){
@@ -85,7 +74,7 @@ public class DingDanZhongXin extends	Fragment{
 		
 		@Override
 		public int getCount() {
-			return tabName.length;
+			return fragments.size();
 		}
 
 		@Override

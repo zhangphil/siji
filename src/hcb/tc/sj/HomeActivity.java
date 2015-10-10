@@ -32,7 +32,6 @@ public class HomeActivity extends FragmentActivity {
 
 		final Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
 		//mToolbar.setLogo(R.drawable.ic_launcher);
-		//mToolbar.setTitle(tabName[0]);
 		//mToolbar.setTitleTextColor(Color.WHITE);
 		
 		myToolbarTitle=(TextView) findViewById(R.id.toolbar_title);
