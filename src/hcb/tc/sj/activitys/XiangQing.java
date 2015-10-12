@@ -1,6 +1,7 @@
 package hcb.tc.sj.activitys;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -24,6 +25,7 @@ public class XiangQing extends	Activity{
 			}
 		});
 		
+		toolbar.setTitleTextColor(Color.WHITE);
 		toolbar.setTitle("详情");
 	}
 }

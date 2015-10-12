@@ -6,13 +6,14 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
-
+import android.widget.TextView;
 import hcb.tc.sj.R;
 import hcb.tc.sj.activitys.XiangQing;
 
@@ -81,6 +82,22 @@ public class QiangDan extends Fragment {
 				public void onClick(View v) {
 					Intent intent=new Intent(context,XiangQing.class);
 					startActivity(intent);
+				}
+			});
+			
+			TextView action=(TextView) convertView.findViewById(R.id.action);
+			action.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					AlertDialog.Builder builder = new AlertDialog.Builder(context);
+			        builder//.setMessage("Android Material Design Dialog @ CSDN Zhang Phil")
+			               .setNegativeButton("取消", null)
+			               .setPositiveButton("确定", null)
+			               .setTitle("Material Design Dialog")
+			               .setView(R.layout.popup_window)
+			               .show();
+
 				}
 			});
 			

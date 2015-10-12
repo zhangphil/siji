@@ -2645,7 +2645,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f090052;
         public static final int action_mode_bar_stub=0x7f090051;
         public static final int action_mode_close_button=0x7f09003a;
-        public static final int action_settings=0x7f09008a;
+        public static final int action_settings=0x7f09008c;
         public static final int activity_chooser_view_content=0x7f09003b;
         public static final int activity_xiangqing_toolbar=0x7f09006e;
         public static final int alertTitle=0x7f090045;
@@ -2681,7 +2681,7 @@ containing a value of this type.
         public static final int fill_horizontal=0x7f09002c;
         public static final int fill_vertical=0x7f09002d;
         public static final int fixed=0x7f090023;
-        public static final int fragment_RelativeLayout=0x7f090088;
+        public static final int fragment_RelativeLayout=0x7f09008a;
         public static final int home=0x7f090000;
         public static final int homeAsUp=0x7f09000f;
         public static final int huowuyunsongzhuangtai=0x7f090075;
@@ -2689,6 +2689,7 @@ containing a value of this type.
         public static final int ifRoom=0x7f09001c;
         public static final int image=0x7f09003d;
         public static final int info=0x7f090086;
+        public static final int jiage_EditText=0x7f090088;
         public static final int left=0x7f09002e;
         public static final int line1=0x7f090080;
         public static final int line3=0x7f090084;
@@ -2696,6 +2697,7 @@ containing a value of this type.
         public static final int list_item=0x7f09003f;
         public static final int loginButton=0x7f09006a;
         public static final int media_actions=0x7f09007e;
+        public static final int message_EditText=0x7f090089;
         public static final int middle=0x7f090021;
         public static final int mini=0x7f090022;
         public static final int multiply=0x7f090015;
@@ -2755,7 +2757,7 @@ containing a value of this type.
         public static final int title=0x7f090041;
         public static final int title_template=0x7f090044;
         public static final int toolbar=0x7f090064;
-        public static final int toolbar_title=0x7f090089;
+        public static final int toolbar_title=0x7f09008b;
         public static final int top=0x7f090031;
         public static final int topPanel=0x7f090043;
         public static final int up=0x7f090001;
@@ -2859,11 +2861,12 @@ containing a value of this type.
         public static final int notification_template_media=0x7f030031;
         public static final int notification_template_part_chronometer=0x7f030032;
         public static final int notification_template_part_time=0x7f030033;
-        public static final int select_dialog_item_material=0x7f030034;
-        public static final int select_dialog_multichoice_material=0x7f030035;
-        public static final int select_dialog_singlechoice_material=0x7f030036;
-        public static final int support_simple_spinner_dropdown_item=0x7f030037;
-        public static final int toolbar_header=0x7f030038;
+        public static final int popup_window=0x7f030034;
+        public static final int select_dialog_item_material=0x7f030035;
+        public static final int select_dialog_multichoice_material=0x7f030036;
+        public static final int select_dialog_singlechoice_material=0x7f030037;
+        public static final int support_simple_spinner_dropdown_item=0x7f030038;
+        public static final int toolbar_header=0x7f030039;
     }
     public static final class menu {
         public static final int main=0x7f0d0000;
