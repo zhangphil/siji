@@ -19,12 +19,13 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import hcb.tc.sj.R;
 import hcb.tc.sj.fragments.DingDanZhongXin;
+import hcb.tc.sj.fragments.GongJu;
 import hcb.tc.sj.fragments.QiangDan;
+import hcb.tc.sj.fragments.Wo;
 import hcb.tc.sj.view.SlidingTabLayout;
 
 public class Home extends FragmentActivity {
 
-	//private	TextView myToolbarTitle;
 	private	Toolbar mToolbar;
 	private String[] tabName;
 	private	Spinner spinner;
@@ -64,12 +65,8 @@ public class Home extends FragmentActivity {
 			public void onNothingSelected(AdapterView<?> arg0) {
 				
 			}});
-         
-        //设置默认值
-        //spinner.setVisibility(View.VISIBLE);
 
-
-		MyViewPagerAdapter adapter = new MyViewPagerAdapter(this.getSupportFragmentManager());
+		final	MyViewPagerAdapter adapter = new MyViewPagerAdapter(this.getSupportFragmentManager());
 		ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
 		viewPager.setAdapter(adapter);
 
@@ -80,8 +77,8 @@ public class Home extends FragmentActivity {
 	private	void	addFrgmentForViewPager(ArrayList<Fragment> fragments){
 		fragments.add(new QiangDan());
 		fragments.add(new DingDanZhongXin());
-		fragments.add(new Fragment());
-		fragments.add(new Fragment());
+		fragments.add(new GongJu());
+		fragments.add(new Wo());
 	}
 
 	private class MyViewPagerAdapter extends FragmentPagerAdapter {

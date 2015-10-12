@@ -7,7 +7,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content" >
 
         <TextView
             android:layout_width="wrap_content"
@@ -21,77 +21,79 @@
             android:id="@+id/huowuyunsongzhuangtai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-			android:layout_alignParentRight="true"
+            android:layout_alignParentRight="true"
             android:gravity="center"
             android:text="待接货" />
     </RelativeLayout>
 
-    <View
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="2dip"
-        android:background="@drawable/line_divider" />
+        android:background="@drawable/dash_line_divider"
+        android:layerType="software"
+        android:orientation="horizontal" />
 
-       
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="桑泰大道（丽山路与学苑大道交汇处）" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="桑泰大道（丽山路与学苑大道交汇处）" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="万海大厦（南山区南海大道1031）" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="万海大厦（南山区南海大道1031）" />
-            
-             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="装货时间：2015-09-10 08:00" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="装货时间：2015-09-10 08:00" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dip"
-                android:layout_marginRight="3dip"
-                android:background="@drawable/line_divider" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:background="@drawable/dash_line_divider"
+        android:layerType="software"
+        android:orientation="horizontal" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="运费：100元（线下到付）" />
-      
-			 <View
-                android:layout_width="match_parent"
-                android:layout_height="2dip"
-                android:layout_marginRight="3dip"
-                android:background="@drawable/line_divider" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="运费：100元（线下到付）" />
 
-			 <LinearLayout
-			     android:layout_width="match_parent"
-			     android:layout_height="wrap_content" >
+    <LinearLayout
+        android:id="@+id/dashLine"
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:background="@drawable/dash_line_divider"
+        android:layerType="software"
+        android:orientation="horizontal" />
 
-			     <Button
-			         android:id="@+id/xiangqingButton"
-			         android:layout_width="0dip"
-			         android:layout_weight="1"
-			         android:layout_height="wrap_content"
-			         android:text="详情" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
-			     <Button
-			         android:layout_width="0dip"
-			         android:layout_weight="1"
-			         android:layout_height="wrap_content"
-			         android:text="发货人" />
+        <Button
+            android:id="@+id/xiangqingButton"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="详情" />
 
-			     <Button
-			         android:layout_width="0dip"
-			         android:layout_weight="1"
-			         android:layout_height="wrap_content"
-			         android:text="状态" />
-			     
-			 </LinearLayout>
-			 
+        <Button
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="发货人" />
+
+        <Button
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="状态" />
+    </LinearLayout>
+
 </LinearLayout>

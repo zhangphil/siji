@@ -44,10 +44,12 @@
             android:src="@drawable/xiangqing" />
     </LinearLayout>
 
-    <View
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="2dip"
-        android:background="@drawable/line_divider" />
+        android:background="@drawable/dash_line_divider"
+        android:layerType="software"
+        android:orientation="horizontal" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -74,11 +76,12 @@
                 android:gravity="center"
                 android:text="万海大厦（南山区南海大道1031）" />
 
-            <View
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="2dip"
-                android:layout_marginRight="3dip"
-                android:background="@drawable/line_divider" />
+                android:background="@drawable/dash_line_divider"
+                android:layerType="software"
+                android:orientation="horizontal" />
 
             <TextView
                 android:layout_width="wrap_content"
