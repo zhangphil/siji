@@ -24,57 +24,61 @@ import hcb.tc.sj.fragments.QiangDan;
 import hcb.tc.sj.fragments.Wo;
 import hcb.tc.sj.view.SlidingTabLayout;
 
+
 public class Home extends FragmentActivity {
 
-	private	Toolbar mToolbar;
+	private Toolbar mToolbar;
 	private String[] tabName;
-	private	Spinner spinner;
+	private Spinner spinner;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		Resources res = getResources();
 		tabName = res.getStringArray(R.array.tab_name);
-		
+
 		setContentView(R.layout.activity_home);
 
 		mToolbar = (Toolbar) findViewById(R.id.toolbar);
 		mToolbar.setTitleTextColor(Color.WHITE);
 		mToolbar.setTitle("抢单");
-		
-		spinner=(Spinner) findViewById(R.id.spinner);
-		
-		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,res.getStringArray(R.array.city));
-        
-        //设置下拉列表的风格
+
+		spinner = (Spinner) findViewById(R.id.spinner);
+
+		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,
+				res.getStringArray(R.array.city));
+
+		// 设置下拉列表的风格
 		spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-         
-        //将adapter 添加到spinner中
-        spinner.setAdapter(spinnerAdapter);
-         
-        //添加事件Spinner事件监听  
-        spinner.setOnItemSelectedListener(new OnItemSelectedListener(){
+
+		// 将adapter 添加到spinner中
+		spinner.setAdapter(spinnerAdapter);
+		spinner.setSelection(1);
+
+		// 添加事件Spinner事件监听
+		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-				
+
 			}
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {
-				
-			}});
 
-		final	MyViewPagerAdapter adapter = new MyViewPagerAdapter(this.getSupportFragmentManager());
+			}
+		});
+
+		final MyViewPagerAdapter adapter = new MyViewPagerAdapter(this.getSupportFragmentManager());
 		ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
 		viewPager.setAdapter(adapter);
 
-		SlidingTabLayout mSlidingTabLayout=(SlidingTabLayout) findViewById(R.id.slidingTabLayout);
-		mSlidingTabLayout.setViewPager(viewPager); 
+		SlidingTabLayout mSlidingTabLayout = (SlidingTabLayout) findViewById(R.id.slidingTabLayout);
+		mSlidingTabLayout.setViewPager(viewPager);
 	}
-	
-	private	void	addFrgmentForViewPager(ArrayList<Fragment> fragments){
+
+	private void addFrgmentForViewPager(ArrayList<Fragment> fragments) {
 		fragments.add(new QiangDan());
 		fragments.add(new DingDanZhongXin());
 		fragments.add(new GongJu());
@@ -83,11 +87,11 @@ public class Home extends FragmentActivity {
 
 	private class MyViewPagerAdapter extends FragmentPagerAdapter {
 
-		private	ArrayList<Fragment> fragments;
-		
+		private ArrayList<Fragment> fragments;
+
 		public MyViewPagerAdapter(FragmentManager fm) {
 			super(fm);
-			fragments=new ArrayList<Fragment>();
+			fragments = new ArrayList<Fragment>();
 			addFrgmentForViewPager(fragments);
 		}
 
@@ -100,18 +104,18 @@ public class Home extends FragmentActivity {
 		public Fragment getItem(int pos) {
 			return fragments.get(pos);
 		}
-		
+
 		@Override
 		public CharSequence getPageTitle(int position) {
 			return tabName[position];
 		}
 
 		@Override
-		public	void	setPrimaryItem(ViewGroup container, int position, Object object) {
+		public void setPrimaryItem(ViewGroup container, int position, Object object) {
 			super.setPrimaryItem(container, position, object);
 			mToolbar.setTitle(tabName[position]);
-			
-			if(position==0)
+
+			if (position == 0)
 				spinner.setVisibility(View.VISIBLE);
 			else
 				spinner.setVisibility(View.GONE);
