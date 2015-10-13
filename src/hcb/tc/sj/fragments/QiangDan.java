@@ -91,7 +91,7 @@ public class QiangDan extends Fragment {
 			TextView danzizhuangtai = (TextView) convertView.findViewById(R.id.danZiZhuangTaiTextView);
 
 			int type = getItemViewType(pos);
-			String label = getDanZiZHuangTaiString(type);
+			String label = DanZiZhuangTai.getName(type);
 			danzizhuangtai.setText(label);
 			
 			if(type==DanZiZhuangTai.QIANGDAN.type){
@@ -127,37 +127,15 @@ public class QiangDan extends Fragment {
 		@Override
 		public int getItemViewType(int pos) {
 			int n = pos % 3;
-			Log.d("张飞", "n:"+n);
-			int type = -10;
-			switch (n) {
-			case 0:
-				type = DanZiZhuangTai.QIANGDAN.type;
-				break;
-			case 1:
-				type = DanZiZhuangTai.JINGJIA.type;
-				break;
-
-			case 2:
-				type = DanZiZhuangTai.YIJINGJIA.type;
-				break;
-			}
-
-			Log.d("张飞", "getItemViewType "+type);
+			int type=0;
 			
-			return type;
-		}
-
-		private String getDanZiZHuangTaiString(int type) {
-			String str = "未知";
-
 			for (DanZiZhuangTai d : DanZiZhuangTai.values()) {
-				if (d.type == type) {
-					str = d.name;
+				if (d.ordinal() == n) {
+					type = d.type;
 				}
 			}
-
-			Log.d("张飞", "getDanZiZHuangTaiString "+str);
-			return str;
+			
+			return type;
 		}
 
 		@Override

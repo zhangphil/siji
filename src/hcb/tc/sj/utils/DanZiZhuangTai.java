@@ -9,5 +9,19 @@ public enum DanZiZhuangTai {
 
 	private DanZiZhuangTai(int type, String name) {
 		this.name = name;
+		this.type=type;
 	}
+	
+	public	static	String	getName(int type){
+		String str = "未知";
+
+		for (DanZiZhuangTai d : DanZiZhuangTai.values()) {
+			if (d.type == type) {
+				str = d.name;
+			}
+		}
+
+		return str;
+	}
+	
 }
