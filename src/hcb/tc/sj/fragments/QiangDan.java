@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import hcb.tc.sj.R;
 import hcb.tc.sj.activitys.XiangQing;
+import hcb.tc.sj.utils.DanZiZhuangTai;
 
 public class QiangDan extends Fragment {
 
@@ -86,24 +88,76 @@ public class QiangDan extends Fragment {
 				}
 			});
 
-			TextView action = (TextView) convertView.findViewById(R.id.action);
-			action.setOnClickListener(new View.OnClickListener() {
+			TextView danzizhuangtai = (TextView) convertView.findViewById(R.id.danZiZhuangTaiTextView);
 
-				@Override
-				public void onClick(View v) {
-					AlertDialog.Builder builder = new AlertDialog.Builder(context);
-					builder.setNegativeButton("取消", null)
-							.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+			int type = getItemViewType(pos);
+			Log.d("张飞", type+"类型");
+			String label = getDanZiZHuangTaiString(type);
+			danzizhuangtai.setText(label);
+			
+			if(type==DanZiZhuangTai.QIANGDAN.type){
+				
+			}
+			
+			if (type == DanZiZhuangTai.JINGJIA.type) {
+				
+				danzizhuangtai.setOnClickListener(new View.OnClickListener() {
 
-								public void onClick(DialogInterface dialog, int which) {
+					@Override
+					public void onClick(View v) {
+						AlertDialog.Builder builder = new AlertDialog.Builder(context);
+						builder.setNegativeButton("取消", null)
+								.setPositiveButton("确定", new DialogInterface.OnClickListener() {
 
-								}
-					}).setTitle("竞价").setView(R.layout.popup_window).show();
+							public void onClick(DialogInterface dialog, int which) {
 
-				}
-			});
+							}
+						}).setTitle("竞价").setView(R.layout.popup_window).show();
+
+					}
+				});
+			}
+			
+			if(type==DanZiZhuangTai.YIJINGJIA.type){
+				
+			}
 
 			return convertView;
+		}
+
+		@Override
+		public int getItemViewType(int pos) {
+			int n = pos % 3;
+			Log.d("张飞", n+"n");
+			int type = -10;
+			switch (n) {
+			case 0:
+				type = DanZiZhuangTai.QIANGDAN.type;
+				break;
+			case 1:
+				type = DanZiZhuangTai.JINGJIA.type;
+				break;
+
+			case 2:
+				type = DanZiZhuangTai.YIJINGJIA.type;
+				break;
+			}
+
+			Log.d("张飞", ""+type);
+			return type;
+		}
+
+		private String getDanZiZHuangTaiString(int type) {
+			String str = "未知";
+
+			for (DanZiZhuangTai d : DanZiZhuangTai.values()) {
+				if (d.type == type) {
+					str = d.name;
+				}
+			}
+
+			Log.d("张飞", ""+str);
+			return str;
 		}
 
 		@Override

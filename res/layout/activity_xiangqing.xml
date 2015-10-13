@@ -12,17 +12,15 @@
         android:layout_alignParentTop="true"
         android:background="@color/huochebang_light_orange"
         android:minHeight="?attr/actionBarSize"
-    	app:navigationIcon="@drawable/fanhui"
-    	app:navigationContentDescription="返回"  >
-
-       
-        
+        app:navigationContentDescription="返回"
+        app:navigationIcon="@drawable/fanhui" >
     </android.support.v7.widget.Toolbar>
-    
+
     <LinearLayout
-        android:layout_below="@+id/activity_xiangqing_toolbar"
+        android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/activity_xiangqing_toolbar"
         android:layout_margin="10dip"
         android:background="@android:color/white"
         android:orientation="vertical" >
@@ -40,6 +38,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/huowuZhuangTaiTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -48,19 +47,18 @@
         </RelativeLayout>
 
         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="2dip"
-        android:background="@drawable/dash_line_divider"
-        android:layerType="software"
-        android:orientation="horizontal" />
-
+            android:layout_width="match_parent"
+            android:layout_height="2dip"
+            android:background="@drawable/dash_line_divider"
+            android:layerType="software"
+            android:orientation="horizontal" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="装货时间：2015-09-10 08:00" />
-        
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,18 +66,20 @@
             android:text="桑泰大道（丽山路与学苑大道交汇处）" />
 
         <TextView
+            android:id="@+id/zhuangHuoPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="张三：13801380138" />
-        
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="万海大厦（南山区南海大道1031）" />
 
-         <TextView
+        <TextView
+            android:id="@+id/shouHuoPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="公里数：约14.4公里" />
-        
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -102,24 +102,35 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="货物体积：办公用品" />
-        
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="额外服务：需要跟车、需要搬运" />
-        
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="运费：0元" />
-        
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="支付方式：线下到付" />
+    </LinearLayout>
 
-     </LinearLayout>
+    <Button
+        android:id="@+id/jingJiaButton"
+        android:layout_margin="10dip"        
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:background="@color/huochebang_light_orange"
+        android:text="竞价"
+        android:textColor="@android:color/white" />
+
 </RelativeLayout>

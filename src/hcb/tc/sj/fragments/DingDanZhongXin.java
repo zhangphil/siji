@@ -2,6 +2,7 @@ package hcb.tc.sj.fragments;
 
 import java.util.ArrayList;
 
+
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -12,7 +13,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import hcb.tc.sj.R;
 
 public class DingDanZhongXin extends Fragment {
@@ -62,6 +62,8 @@ public class DingDanZhongXin extends Fragment {
 		});
 
 		tabLayout.setupWithViewPager(viewPager);
+		
+	
 	}
 	
 	public	void	onNotifyDataSetChanged(){

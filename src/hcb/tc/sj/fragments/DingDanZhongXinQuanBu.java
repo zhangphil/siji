@@ -2,11 +2,11 @@ package hcb.tc.sj.fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -93,6 +93,19 @@ public class DingDanZhongXinQuanBu extends	Fragment{
 				public void onClick(View v) {
 					Intent intent=new Intent(context,XiangQing.class);
 					startActivity(intent);
+				}
+			});
+			
+			Button callFaHuoRen=(Button) convertView.findViewById(R.id.callFaHuoRen);
+			callFaHuoRen.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					String number="15918742145";
+					
+					//用intent启动拨打电话  
+					Intent intent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+number));  
+					startActivity(intent);  
 				}
 			});
 			
