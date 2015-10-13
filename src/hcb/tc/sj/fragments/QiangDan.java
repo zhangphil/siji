@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import hcb.tc.sj.R;
+import hcb.tc.sj.activitys.DaiJieHuo;
 import hcb.tc.sj.activitys.XiangQing;
 import hcb.tc.sj.utils.DanZiZhuangTai;
 
@@ -88,38 +88,48 @@ public class QiangDan extends Fragment {
 				}
 			});
 
-			TextView danzizhuangtai = (TextView) convertView.findViewById(R.id.danZiZhuangTaiTextView);
+			final TextView danzizhuangtai = (TextView) convertView.findViewById(R.id.danZiZhuangTaiTextView);
 
-			int type = getItemViewType(pos);
+			final int type = getItemViewType(pos);
 			String label = DanZiZhuangTai.getName(type);
 			danzizhuangtai.setText(label);
-			
-			if(type==DanZiZhuangTai.QIANGDAN.type){
-				
+			if (type == DanZiZhuangTai.YIJINGJIA.type) {
+				danzizhuangtai.setBackgroundResource(R.drawable.yuan_gray);
 			}
-			
-			if (type == DanZiZhuangTai.JINGJIA.type) {
-				
-				danzizhuangtai.setOnClickListener(new View.OnClickListener() {
+			danzizhuangtai.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					if (type == DanZiZhuangTai.QIANGDAN.type) {
 
-					@Override
-					public void onClick(View v) {
+						AlertDialog.Builder builder = new AlertDialog.Builder(context);
+						builder.setMessage("是否确认抢单？\n（抢单成功后，请立即与货主联系）").setNegativeButton("取消", null)
+								.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								if (which == DialogInterface.BUTTON_POSITIVE) {
+									Intent intent = new Intent(getContext(), DaiJieHuo.class);
+									startActivity(intent);
+								}
+
+							}
+						}).setTitle("").show();
+					}
+
+					if (type == DanZiZhuangTai.JINGJIA.type) {
+
 						AlertDialog.Builder builder = new AlertDialog.Builder(context);
 						builder.setNegativeButton("取消", null)
 								.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-
 							public void onClick(DialogInterface dialog, int which) {
 
 							}
 						}).setTitle("竞价").setView(R.layout.popup_window).show();
-
 					}
-				});
-			}
-			
-			if(type==DanZiZhuangTai.YIJINGJIA.type){
-				
-			}
+
+				}
+
+			});
 
 			return convertView;
 		}
@@ -127,14 +137,14 @@ public class QiangDan extends Fragment {
 		@Override
 		public int getItemViewType(int pos) {
 			int n = pos % 3;
-			int type=0;
-			
+			int type = 0;
+
 			for (DanZiZhuangTai d : DanZiZhuangTai.values()) {
 				if (d.ordinal() == n) {
 					type = d.type;
 				}
 			}
-			
+
 			return type;
 		}
 
