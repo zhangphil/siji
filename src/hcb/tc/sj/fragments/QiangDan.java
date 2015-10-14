@@ -38,6 +38,11 @@ public class QiangDan extends Fragment {
 		listView.setAdapter(adapter);
 
 		swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
+		
+		//目前先暂时不添加下拉刷新功能
+		//所以先屏蔽下拉刷新功能
+		swipeRefreshLayout.setEnabled(false);
+		
 		swipeRefreshLayout.setSize(SwipeRefreshLayout.LARGE);
 
 		// 设置下拉多少距离之后开始刷新数据

@@ -34,6 +34,11 @@
             android:name="hcb.tc.sj.activitys.DaiJieHuo"
             android:label="@string/app_name" >
         </activity>
+         <activity
+            android:name="hcb.tc.sj.activitys.YunSongZhong"
+            android:label="@string/app_name" >
+        </activity>
+        
         
 
         <!-- 百度地图的key -->

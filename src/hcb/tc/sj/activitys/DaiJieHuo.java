@@ -1,5 +1,6 @@
 package hcb.tc.sj.activitys;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.baidu.location.BDLocation;
@@ -17,6 +18,9 @@ import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.navi.BaiduMapAppNotSupportNaviException;
+import com.baidu.mapapi.navi.BaiduMapNavigation;
+import com.baidu.mapapi.navi.NaviParaOption;
 import com.baidu.mapapi.overlayutil.DrivingRouteOverlay;
 import com.baidu.mapapi.overlayutil.OverlayManager;
 import com.baidu.mapapi.search.core.PoiInfo;
@@ -32,16 +36,21 @@ import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
 
 import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Config;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ZoomControls;
 import hcb.tc.sj.R;
+import hcb.tc.sj.utils.Constants;
 
 /**
  * 这部分百度地图的定位代码中使用了较为复杂。 若希望使用更简单的定位代码请参考这篇技术文档：
@@ -56,20 +65,26 @@ public class DaiJieHuo extends Activity {
 	private BDLocationListener myListener = new MyLocationListener();
 
 	// 搜索相关
-	RoutePlanSearch mSearch = null; // 搜索模块，也可去掉地图模块独立使用
+	private RoutePlanSearch mSearch = null; // 搜索模块，也可去掉地图模块独立使用
 
+	private	LatLng siJiDangQianWeiZhiLatLng;
+	
+	private	LocationClientOption mLocationClientOption;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// 在使用SDK各组件之前初始化context信息，传入ApplicationContext
 		// 注意该方法要再setContentView方法之前实现
 		SDKInitializer.initialize(getApplicationContext());
-		setContentView(R.layout.activity_daijiehuo);
+
+		View view = this.getLayoutInflater().inflate(R.layout.activity_huowuyunshu, null);
+		setContentView(view);
 		// 获取地图控件引用
-		mMapView = (MapView) findViewById(R.id.bmapView);
+		mMapView = (MapView) view.findViewById(R.id.bmapView);
 
 		final Activity activity = this;
-		Toolbar toolbar = (Toolbar) findViewById(R.id.activity_daijeihuo_toolbar);
+		final Toolbar toolbar = (Toolbar) view.findViewById(R.id.activity_daijeihuo_toolbar);
 		toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -79,7 +94,7 @@ public class DaiJieHuo extends Activity {
 		});
 
 		toolbar.setTitleTextColor(Color.WHITE);
-		toolbar.setTitle("待接货");
+		toolbar.setTitle(Constants.DAIJIEHUO);
 
 		try {
 			trimBaiduMap();
@@ -88,6 +103,57 @@ public class DaiJieHuo extends Activity {
 		}
 
 		initBaiduMap();
+
+		Button mapViewTopButton = (Button) view.findViewById(R.id.mapViewTopButton);
+		mapViewTopButton.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+				builder.setMessage("确认接货成功，进入运送中").setNegativeButton("取消", null)
+						.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						if (which == DialogInterface.BUTTON_POSITIVE) {
+							Intent intent=new Intent(activity,YunSongZhong.class);
+							startActivity(intent);
+							activity.finish();
+						}
+					}
+				}).setTitle("").show();
+			}
+		});
+		
+		
+		Button jinRuDaoHangButton=(Button) view.findViewById(R.id.jinRuDaoHangButton);
+		jinRuDaoHangButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				LatLng pt1 = getSiJiDangQianWeiZhiLatLng();
+				LatLng pt2 = getEndLatLng();
+				startNavi(pt1,pt2);
+			}
+		});
+	}
+	
+	/**
+	 * 启动百度地图导航(Native)
+	 * 
+	 */
+	public void startNavi(LatLng pt1,LatLng pt2) {
+		
+		// 构建 导航参数
+		NaviParaOption para = new NaviParaOption()
+					.startPoint(pt1).endPoint(pt2);
+
+		try {
+			BaiduMapNavigation.openBaiduMapNavi(para, this);
+		} catch (BaiduMapAppNotSupportNaviException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	private void trimBaiduMap() throws Exception {
@@ -113,24 +179,25 @@ public class DaiJieHuo extends Activity {
 		mSearch.setOnGetRoutePlanResultListener(listener);
 
 		mLocationClient = new LocationClient(getApplicationContext());
-		LocationClientOption option = new LocationClientOption();
-		setMyLocationClientOption(option);
-		
+		mLocationClientOption = new LocationClientOption();
+		setMyLocationClientOption(mLocationClientOption);
+
 		mLocationClient.registerLocationListener(myListener);
-		
+
 		// 开启定位图层
 		mBaiduMap.setMyLocationEnabled(true);
 
 		// 开始定位
 		mLocationClient.start();
-	}
+	}	
 	
-	private	void setMyLocationClientOption(LocationClientOption option){
-		setMyLocationClientOption(option,0);
+	
+	private void setMyLocationClientOption(LocationClientOption option) {
+		setMyLocationClientOption(option, 0);
 	}
 
-	private	void	setMyLocationClientOption(LocationClientOption option,int scanSpan){
-		
+	private void setMyLocationClientOption(LocationClientOption option, int scanSpan) {
+
 		option.setLocationMode(LocationMode.Hight_Accuracy);// 可选，默认高精度，设置定位模式，高精度，低功耗，仅设备
 		option.setCoorType("bd09ll");// 可选，默认gcj02，设置返回的定位结果坐标系
 		int span = scanSpan;// 设置0将只定位一次；设置1000将每隔一秒定位一次
@@ -180,27 +247,23 @@ public class DaiJieHuo extends Activity {
 	}
 
 	// 启动百度的路径规划
-	private void route(LatLng startLL, LatLng endLL) {
+	private void route(LatLng startLL, List<PlanNode> passBy, LatLng endLL) {
 		Log.d("路径规划", startLL.toString() + " -> " + endLL.toString());
 
 		PlanNode stNode = PlanNode.withLocation(startLL);
 		PlanNode enNode = PlanNode.withLocation(endLL);
 
-		mSearch.drivingSearch((new DrivingRoutePlanOption()).from(stNode).to(enNode));
+		if (passBy != null)
+			mSearch.drivingSearch((new DrivingRoutePlanOption()).from(stNode).passBy(passBy).to(enNode));
+		else
+			mSearch.drivingSearch((new DrivingRoutePlanOption()).from(stNode).to(enNode));
 	}
 
-	// 启动百度的路径规划
-	// private void route(String startAddr,String endAddr){
-	// Log.d("路径规划", startAddr+" -> "+endAddr);
-	//
-	// //设置起终点信息，对于tranist search 来说，城市名无意义
-	// PlanNode stNode = PlanNode.withCityNameAndPlaceName("成都", startAddr);
-	// PlanNode enNode = PlanNode.withCityNameAndPlaceName("成都", endAddr);
-	//
-	// mSearch.drivingSearch((new DrivingRoutePlanOption())
-	// .from(stNode)
-	// .to(enNode));
-	// }
+//	private void drawLine(List<LatLng> points) {
+//		// 添加折线
+//		OverlayOptions ooPolyline = new PolylineOptions().width(10).color(0xAAFF0000).points(points);
+//		mBaiduMap.addOverlay(ooPolyline);
+//	}
 
 	public class MyLocationListener implements BDLocationListener {
 
@@ -215,14 +278,16 @@ public class DaiJieHuo extends Activity {
 					.direction(100).latitude(location.getLatitude()).longitude(location.getLongitude()).build();
 			mBaiduMap.setMyLocationData(locData);
 
-			LatLng ll = new LatLng(location.getLatitude(), location.getLongitude());
-			MapStatusUpdate u = MapStatusUpdateFactory.newLatLngZoom(ll, 15.0f);
+			siJiDangQianWeiZhiLatLng = new LatLng(location.getLatitude(), location.getLongitude());
+			MapStatusUpdate mapStatusUpdate = MapStatusUpdateFactory.newLatLngZoom(siJiDangQianWeiZhiLatLng, 15.0f);
 
-			mBaiduMap.animateMapStatus(u);
+			mBaiduMap.animateMapStatus(mapStatusUpdate);
 
-			// route(location.getAddrStr(),"成都市武侯区一环路南1段24号四川大学望江校区");
-			LatLng target = new LatLng(30.6690990000, 104.0923540000);
-			route(ll, target);
+			
+			route(getSiJiDangQianWeiZhiLatLng(), null, getEndLatLng());
+			
+
+			
 
 			/*
 			 * 以下代码同样有效 double lat = location.getLatitude(); double lng =
@@ -370,7 +435,7 @@ public class DaiJieHuo extends Activity {
 	// 定制RouteOverly
 	private class MyDrivingRouteOverlay extends DrivingRouteOverlay {
 
-		private boolean useDefaultIcon = false;
+		private boolean useDefaultIcon = true;
 
 		public MyDrivingRouteOverlay(BaiduMap baiduMap) {
 			super(baiduMap);
@@ -391,5 +456,27 @@ public class DaiJieHuo extends Activity {
 			}
 			return null;
 		}
+	}
+	
+	
+	protected	LatLng getEndLatLng(){
+		// 火车北站
+		LatLng target = new LatLng(30.7017980000, 104.0822040000);
+		return	target;
+	}
+	
+	protected	List<PlanNode> 	getPassByPlanNodeLists(){
+		// 红星路二段经纬度
+		LatLng passByLL = new LatLng(30.6690990000, 104.0923540000);
+		PlanNode planNode = PlanNode.withLocation(passByLL);
+
+		List<PlanNode> planNodes = new ArrayList<PlanNode>();
+		planNodes.add(planNode);
+		
+		return	planNodes;
+	}
+	
+	protected	LatLng getSiJiDangQianWeiZhiLatLng(){
+		return	siJiDangQianWeiZhiLatLng;
 	}
 }
