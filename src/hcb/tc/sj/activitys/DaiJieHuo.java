@@ -10,11 +10,26 @@ import com.baidu.location.LocationClientOption.LocationMode;
 import com.baidu.location.Poi;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.overlayutil.DrivingRouteOverlay;
+import com.baidu.mapapi.overlayutil.OverlayManager;
+import com.baidu.mapapi.search.core.PoiInfo;
+import com.baidu.mapapi.search.core.RouteLine;
+import com.baidu.mapapi.search.core.SearchResult;
+import com.baidu.mapapi.search.route.DrivingRoutePlanOption;
+import com.baidu.mapapi.search.route.DrivingRouteResult;
+import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
+import com.baidu.mapapi.search.route.PlanNode;
+import com.baidu.mapapi.search.route.RoutePlanSearch;
+import com.baidu.mapapi.search.route.SuggestAddrInfo;
+import com.baidu.mapapi.search.route.TransitRouteResult;
+import com.baidu.mapapi.search.route.WalkingRouteResult;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -24,23 +39,24 @@ import android.util.Config;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 import android.widget.ZoomControls;
 import hcb.tc.sj.R;
 
 /**
- * 这部分百度地图的定位代码中使用了较为复杂。
- * 若希望使用更简单的定位代码请参考这篇技术文档：
+ * 这部分百度地图的定位代码中使用了较为复杂。 若希望使用更简单的定位代码请参考这篇技术文档：
  * http://blog.csdn.net/zhangphil/article/details/48542553
  * 
  */
 
 public class DaiJieHuo extends Activity {
-
+	private MapView mMapView = null;
 	private BaiduMap mBaiduMap = null;
 	private LocationClient mLocationClient = null;
 	private BDLocationListener myListener = new MyLocationListener();
 
-	private MapView mMapView = null;
+	// 搜索相关
+	RoutePlanSearch mSearch = null; // 搜索模块，也可去掉地图模块独立使用
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -91,22 +107,33 @@ public class DaiJieHuo extends Activity {
 	private void initBaiduMap() {
 		mBaiduMap = mMapView.getMap();
 
+		// 初始化搜索模块，注册事件监听
+		mSearch = RoutePlanSearch.newInstance();
+		MyOnGetRoutePlanResultListener listener = new MyOnGetRoutePlanResultListener();
+		mSearch.setOnGetRoutePlanResultListener(listener);
+
 		mLocationClient = new LocationClient(getApplicationContext());
+		LocationClientOption option = new LocationClientOption();
+		setMyLocationClientOption(option);
+		
 		mLocationClient.registerLocationListener(myListener);
-		initLocation();
+		
 		// 开启定位图层
 		mBaiduMap.setMyLocationEnabled(true);
 
 		// 开始定位
 		mLocationClient.start();
 	}
+	
+	private	void setMyLocationClientOption(LocationClientOption option){
+		setMyLocationClientOption(option,0);
+	}
 
-	private void initLocation() {
-		LocationClientOption option = new LocationClientOption();
-
+	private	void	setMyLocationClientOption(LocationClientOption option,int scanSpan){
+		
 		option.setLocationMode(LocationMode.Hight_Accuracy);// 可选，默认高精度，设置定位模式，高精度，低功耗，仅设备
 		option.setCoorType("bd09ll");// 可选，默认gcj02，设置返回的定位结果坐标系
-		int span = 0;// 设置0将只定位一次；设置1000将每隔一秒定位一次
+		int span = scanSpan;// 设置0将只定位一次；设置1000将每隔一秒定位一次
 		option.setScanSpan(span);// 可选，默认0，即仅定位一次，设置发起定位请求的间隔需要大于等于1000ms才是有效的
 		option.setIsNeedAddress(true);// 可选，设置是否需要地址信息，默认不需要
 		option.setOpenGps(true);// 可选，默认false,设置是否使用gps
@@ -123,7 +150,7 @@ public class DaiJieHuo extends Activity {
 	protected void onDestroy() {
 		super.onDestroy();
 
-		//必须！否则将造成百度地图切换回来时候整个APP崩溃
+		// 必须！否则将造成百度地图切换回来时候整个APP崩溃
 		// 退出时销毁定位
 		mLocationClient.stop();
 		// 关闭定位图层
@@ -147,6 +174,34 @@ public class DaiJieHuo extends Activity {
 		mMapView.onPause();
 	}
 
+	@Override
+	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+		super.onRestoreInstanceState(savedInstanceState);
+	}
+
+	// 启动百度的路径规划
+	private void route(LatLng startLL, LatLng endLL) {
+		Log.d("路径规划", startLL.toString() + " -> " + endLL.toString());
+
+		PlanNode stNode = PlanNode.withLocation(startLL);
+		PlanNode enNode = PlanNode.withLocation(endLL);
+
+		mSearch.drivingSearch((new DrivingRoutePlanOption()).from(stNode).to(enNode));
+	}
+
+	// 启动百度的路径规划
+	// private void route(String startAddr,String endAddr){
+	// Log.d("路径规划", startAddr+" -> "+endAddr);
+	//
+	// //设置起终点信息，对于tranist search 来说，城市名无意义
+	// PlanNode stNode = PlanNode.withCityNameAndPlaceName("成都", startAddr);
+	// PlanNode enNode = PlanNode.withCityNameAndPlaceName("成都", endAddr);
+	//
+	// mSearch.drivingSearch((new DrivingRoutePlanOption())
+	// .from(stNode)
+	// .to(enNode));
+	// }
+
 	public class MyLocationListener implements BDLocationListener {
 
 		@Override
@@ -161,8 +216,13 @@ public class DaiJieHuo extends Activity {
 			mBaiduMap.setMyLocationData(locData);
 
 			LatLng ll = new LatLng(location.getLatitude(), location.getLongitude());
-			MapStatusUpdate u = MapStatusUpdateFactory.newLatLng(ll);
+			MapStatusUpdate u = MapStatusUpdateFactory.newLatLngZoom(ll, 15.0f);
+
 			mBaiduMap.animateMapStatus(u);
+
+			// route(location.getAddrStr(),"成都市武侯区一环路南1段24号四川大学望江校区");
+			LatLng target = new LatLng(30.6690990000, 104.0923540000);
+			route(ll, target);
 
 			/*
 			 * 以下代码同样有效 double lat = location.getLatitude(); double lng =
@@ -249,6 +309,87 @@ public class DaiJieHuo extends Activity {
 				Log.i("BaiduLocationApiDem", sb.toString());
 			}
 
+		}
+	}
+
+	private class MyOnGetRoutePlanResultListener implements OnGetRoutePlanResultListener {
+
+		private RouteLine route = null;
+		private OverlayManager routeOverlay = null;
+
+		@Override
+		public void onGetDrivingRouteResult(DrivingRouteResult result) {
+			Log.d("搜索结果返回值", result.error + "");
+
+			if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
+				Toast.makeText(getApplication(), "抱歉，未找到结果", Toast.LENGTH_SHORT).show();
+			}
+
+			if (result.error == SearchResult.ERRORNO.AMBIGUOUS_ROURE_ADDR) {
+				// 起终点或途经点地址有岐义，通过以下接口获取建议查询信息
+				SuggestAddrInfo mSuggestAddrInfo = result.getSuggestAddrInfo();
+				List<PoiInfo> endNodes = mSuggestAddrInfo.getSuggestEndNode();
+				for (int i = 0; i < endNodes.size(); i++)
+					Log.d("建议地址0", endNodes.get(0).address);
+				// return;
+			}
+
+			if (result.error == SearchResult.ERRORNO.NO_ERROR) {
+
+				route = result.getRouteLines().get(0);
+				DrivingRouteOverlay overlay = new MyDrivingRouteOverlay(mBaiduMap);
+				routeOverlay = overlay;
+				mBaiduMap.setOnMarkerClickListener(overlay);
+				overlay.setData(result.getRouteLines().get(0));
+				overlay.addToMap();
+				overlay.zoomToSpan();
+			}
+		}
+
+		// private void drawMyRoute(){
+		// route = result.getRouteLines().get(0);
+		// DrivingRouteOverlay overlay = new MyDrivingRouteOverlay(mBaiduMap);
+		// routeOverlay = overlay;
+		// mBaiduMap.setOnMarkerClickListener(overlay);
+		// overlay.setData(result.getRouteLines().get(0));
+		// overlay.addToMap();
+		// overlay.zoomToSpan();
+		// }
+
+		@Override
+		public void onGetTransitRouteResult(TransitRouteResult arg0) {
+
+		}
+
+		@Override
+		public void onGetWalkingRouteResult(WalkingRouteResult arg0) {
+
+		}
+	}
+
+	// 定制RouteOverly
+	private class MyDrivingRouteOverlay extends DrivingRouteOverlay {
+
+		private boolean useDefaultIcon = false;
+
+		public MyDrivingRouteOverlay(BaiduMap baiduMap) {
+			super(baiduMap);
+		}
+
+		@Override
+		public BitmapDescriptor getStartMarker() {
+			if (useDefaultIcon) {
+				return BitmapDescriptorFactory.fromResource(R.drawable.icon_st);
+			}
+			return null;
+		}
+
+		@Override
+		public BitmapDescriptor getTerminalMarker() {
+			if (useDefaultIcon) {
+				return BitmapDescriptorFactory.fromResource(R.drawable.icon_en);
+			}
+			return null;
 		}
 	}
 }

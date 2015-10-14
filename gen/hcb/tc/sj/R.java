@@ -2631,17 +2631,18 @@ containing a value of this type.
         public static final int first_page=0x7f020044;
         public static final int forward=0x7f020045;
         public static final int ic_launcher=0x7f020046;
-        public static final int line_divider=0x7f020047;
-        public static final int logo=0x7f020048;
-        public static final int mycar=0x7f020049;
-        public static final int notification_template_icon_bg=0x7f020051;
-        public static final int press_color_selector=0x7f02004a;
-        public static final int rectangle_gray=0x7f02004b;
-        public static final int rectangle_line=0x7f02004c;
-        public static final int shou=0x7f02004d;
-        public static final int xiangqing=0x7f02004e;
-        public static final int yuan=0x7f02004f;
-        public static final int yuan_gray=0x7f020050;
+        public static final int icon_en=0x7f020047;
+        public static final int icon_st=0x7f020048;
+        public static final int line_divider=0x7f020049;
+        public static final int logo=0x7f02004a;
+        public static final int notification_template_icon_bg=0x7f020052;
+        public static final int press_color_selector=0x7f02004b;
+        public static final int rectangle_gray=0x7f02004c;
+        public static final int rectangle_line=0x7f02004d;
+        public static final int shou=0x7f02004e;
+        public static final int xiangqing=0x7f02004f;
+        public static final int yuan=0x7f020050;
+        public static final int yuan_gray=0x7f020051;
     }
     public static final class id {
         public static final int action0=0x7f09008b;

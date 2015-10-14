@@ -1,0 +1,22 @@
+0000000000000000000000000000000000000000 45a0874414531be08487ef1e6775f4f65c94422e zhangphil <zhang.fei@msn.com> 1444367569 +0800	clone: from https://github.com/zhangphil/siji
+45a0874414531be08487ef1e6775f4f65c94422e ca992db4d74e99ab75eedd8dcde3318d40f20f99 zhangphil <zhang.fei@msn.com> 1444367715 +0800	commit: 重新创建项目的根
+ca992db4d74e99ab75eedd8dcde3318d40f20f99 d8e2aff93ad5b134da8739659d039df1aec0c033 zhangphil <zhang.fei@msn.com> 1444385592 +0800	commit: code
+d8e2aff93ad5b134da8739659d039df1aec0c033 4ba06babbd7163b20d860d6a4c80d124fd71042e zhangphil <zhang.fei@msn.com> 1444392649 +0800	commit: new
+4ba06babbd7163b20d860d6a4c80d124fd71042e 6ba27403da5dd25d759b5547e150698652ad3996 zhangphil <zhang.fei@msn.com> 1444449457 +0800	commit: 订单中心
+6ba27403da5dd25d759b5547e150698652ad3996 9caf5cf0d6503eeb94c6985be45634153acd4dd0 zhangphil <zhang.fei@msn.com> 1444452204 +0800	commit: debug
+9caf5cf0d6503eeb94c6985be45634153acd4dd0 4794410ebed10ea31003e5325739437461b8146c zhangphil <zhang.fei@msn.com> 1444454583 +0800	commit: add SlidingTabLayout
+4794410ebed10ea31003e5325739437461b8146c 487f21d4e5aae02d9b8ac6fbb99ac8216a43fd0a zhangphil <zhang.fei@msn.com> 1444455287 +0800	commit: 解决在订单中心的全部页面不能显示ListView问题，原因是viewpager id重复
+487f21d4e5aae02d9b8ac6fbb99ac8216a43fd0a 5c75768149463cf5599bb722071c3be5544709cd zhangphil <zhang.fei@msn.com> 1444467819 +0800	commit: 完善更多页面
+5c75768149463cf5599bb722071c3be5544709cd 9f3338c4274e1b7887330e81e8d330a2f7b50486 zhangphil <zhang.fei@msn.com> 1444472314 +0800	commit: 今天完成了核心抢单、订单中心、订单中心的三个选项卡。详情等一些必要的activity。
+9f3338c4274e1b7887330e81e8d330a2f7b50486 6a17c7816cf68553491ede56155809315d6ac53e zhangphil <zhang.fei@msn.com> 1444473763 +0800	commit: 增加SVN支持
+6a17c7816cf68553491ede56155809315d6ac53e 6dd69b63b77cdeefc1b8ebf29bde8ee6b8728620 zhangphil <zhang.fei@msn.com> 1444619328 +0800	commit: 修复虚线分割线不能显示的问题。
+6dd69b63b77cdeefc1b8ebf29bde8ee6b8728620 6dd69b63b77cdeefc1b8ebf29bde8ee6b8728620 zhangphil <zhang.fei@msn.com> 1444620248 +0800	checkout: moving from master to master
+6dd69b63b77cdeefc1b8ebf29bde8ee6b8728620 f7fd9e19401b67f56f9e3e956048439f544fa05b zhangphil <zhang.fei@msn.com> 1444620511 +0800	commit: 定版分别用SlidingTablayout和TabLayout
+f7fd9e19401b67f56f9e3e956048439f544fa05b d6adb258be92af11e56a275e7c0154aff7352b9d zhangphil <zhang.fei@msn.com> 1444621808 +0800	commit: 增加竞价弹出框
+d6adb258be92af11e56a275e7c0154aff7352b9d 1f3acc9183b6674144508d0946093149f1f721be zhangphil <zhang.fei@msn.com> 1444622643 +0800	commit: dilog
+1f3acc9183b6674144508d0946093149f1f721be 4c823fa519bfe0ea65eb7bbf745f011bf4c95bcb zhangphil <zhang.fei@msn.com> 1444645361 +0800	commit: 大量代码
+4c823fa519bfe0ea65eb7bbf745f011bf4c95bcb cc6e8771512bf9e8c7123e97fa50d64d3fa95821 zhangphil <zhang.fei@msn.com> 1444645767 +0800	commit: svn
+cc6e8771512bf9e8c7123e97fa50d64d3fa95821 5d652127d41199a6202624fee584bca47f33bb44 zhangphil <zhang.fei@msn.com> 1444708765 +0800	commit: new
+5d652127d41199a6202624fee584bca47f33bb44 9038e0ab12b936f31bb47bd1fd55a48bf99b04c9 zhangphil <zhang.fei@msn.com> 1444713723 +0800	commit: modify
+9038e0ab12b936f31bb47bd1fd55a48bf99b04c9 e8a9683bb6bfed413219d4bc949a5a250014beb7 zhangphil <zhang.fei@msn.com> 1444717549 +0800	commit: 抢单页面分类型（抢单，竞价，已竞价）
+e8a9683bb6bfed413219d4bc949a5a250014beb7 f34c7a6e124a794414a56898bd4abcd325f50c32 zhangphil <zhang.fei@msn.com> 1444733096 +0800	commit: 增加百度地图
